@@ -26,8 +26,8 @@ SECRET_KEY = '%dfauk_ra!d2hkc=vla_e1ji!wm&6_#&zhkhgut$n+qg-ke2-^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['f5f341bc923841278b967a3f7a896c93.vfs.cloud9.us-east-1.amazonaws.com',
-                'django-to-do-app-sian-jade.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'),
+                os.environ.get('HOSTNAME')]
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'django_to_do.wsgi.application'
 #     }
 # }
 
-DATABASES = { 'default': dj_database_url.parse("postgres://qrnyovivohkytn:5ff6f450633b48704652b8acfa6c0155585ffe79302bb4fd7deab448a684e2a2@ec2-54-246-90-26.eu-west-1.compute.amazonaws.com:5432/d86jdhtsl9cbg") }
+DATABASES = { 'default': dj_database_url.parse(os.eviron.get('DATABASE_URL')) }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
